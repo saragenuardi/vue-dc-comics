@@ -5,11 +5,8 @@
         </div>
         <nav>
             <ul>
-                <li v-for="el, i in AppHeader" :key:"i">
-                    <a :href="el.link" :class="el.selected ? 'active' : ''">
+                <li v-for="el, index in NavComics" :key="index">
                         {{ el.text}}
-                    </a>
-
                 </li>
             </ul>
         </nav>
