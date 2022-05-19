@@ -1,15 +1,19 @@
 <template>
     <header>
-        <div>
-            <img src="../assets/img/dc-logo.png"/>
+        <div class="ms-container">
+            <section id="logo-header">
+                <img src="../assets/img/dc-logo.png" alt="dc logo">
+            </section>
+            <nav>
+                <ul>
+                    <li v-for="el, index in NavComics" :key="index">
+                        <a :href="el.link" :class="el.selected ? 'active' : '' ">
+                            {{el.text}}
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </div>
-        <nav>
-            <ul>
-                <li v-for="el, index in NavComics" :key="index">
-                        {{ el.text}}
-                </li>
-            </ul>
-        </nav>
     </header>
 </template>
 
@@ -85,5 +89,46 @@ export default {
 </script>
 
 <style scoped lang="scss">
+   header {
+    width: 100%;
+    
+    #logo-header {
+        display: flex;
+        width: 30%;
+        padding: 20px 0;
 
+        img {
+            height: 85px;
+            width: 85px;
+        }
+    }
+    nav {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        width: 70%;
+
+        ul {
+            list-style: none;
+
+            li {
+                display: inline-block;
+                margin: 0 10px;
+
+                a {
+                    text-decoration: none;
+                    color: #4d5056;
+                    font-size: 15px;
+                    font-weight: 600;
+
+                    &.active {
+                        color: #2c89f9;
+                        border-bottom: 7px solid #2c89f9;
+                        padding-bottom: 47px;
+                    }
+                }
+            }
+        }
+    }
+   }
 </style>
